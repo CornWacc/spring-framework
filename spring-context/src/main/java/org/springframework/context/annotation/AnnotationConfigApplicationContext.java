@@ -62,7 +62,17 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
+		/**
+		 * 父类的构造方法
+		 * 创建一个读取注解的Bean定义读取器 (BeanDefinition)
+		 * */
 		this.reader = new AnnotatedBeanDefinitionReader(this);
+
+		/**
+		 * 可以用来扫描包或者类
+		 * 但是实际我们扫描包工作不是scanner这个对象来完成的
+		 * 是Spring自己new的一个ClassPathBeanDefinitionScanner
+		 * */
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 
