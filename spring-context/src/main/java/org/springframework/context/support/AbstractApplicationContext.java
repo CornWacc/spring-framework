@@ -531,6 +531,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 				// 在Spring环境中去执行已经注册的factory processors
 				//设置执行自定义的ProcessBeanFactory和Spring 内部自定义的
+				// 完成SpringBean的扫描
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				//注册beanPostProcessor

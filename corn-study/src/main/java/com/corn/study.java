@@ -3,6 +3,7 @@ package com.corn;
 import com.corn.app.AppConfig;
 import com.corn.bean.TestService;
 import com.corn.bean.TestService2;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class study {
@@ -15,7 +16,9 @@ public class study {
 				= new AnnotationConfigApplicationContext(AppConfig.class);
 
 		//这里传入的参数是根据BeanDefinition里面的参数来的
-		context.getBean(TestService2.class);
+//		context.getBean(TestService2.class);
+		context.getBeansOfType(TestService.class);
+		System.out.println(context.getBeansOfType(TestService.class));
 
 //		GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
 //		beanDefinition.setBeanClass(TestService.class);

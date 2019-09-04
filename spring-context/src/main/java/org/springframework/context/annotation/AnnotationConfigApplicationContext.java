@@ -96,6 +96,11 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... annotatedClasses) {
+
+		/**
+		 * 调用自己的无参构造 初始化Bean读取器和类路径扫描器
+		 * 调用父级的午餐构造 初始化Bean工厂
+		 * */
 		this();
 		register(annotatedClasses);
 		refresh();
