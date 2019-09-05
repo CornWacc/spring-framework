@@ -102,7 +102,15 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 		 * 调用父级的午餐构造 初始化Bean工厂
 		 * */
 		this();
+
+		/**
+		 * 初始化bean
+		 * */
 		register(annotatedClasses);
+
+		/**
+		 * 刷新容器
+		 * */
 		refresh();
 	}
 
