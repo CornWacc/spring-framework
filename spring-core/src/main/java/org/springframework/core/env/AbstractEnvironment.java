@@ -386,6 +386,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public Map<String, Object> getSystemProperties() {
 		try {
+			//todo 断点
+			System.out.println(System.getProperties().values());
 			return (Map) System.getProperties();
 		}
 		catch (AccessControlException ex) {
