@@ -77,6 +77,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
+import sun.net.www.http.HttpClient;
 
 /**
  * Abstract base class for {@link org.springframework.beans.factory.BeanFactory}
@@ -242,6 +243,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
 			@Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
 
+		/**
+		 * 通过name获取beanName。这里不使用name直接作为beanName的两个原因
+		 * 1.name可能会以&字符开头,表明调用者想获取FactoryBean本身，而非FactoryBean实现类所创建的Bean。
+		 * 在BeanFactory中,FactoryBean的实现类和其他的bean储存方式是一致的,即<beanName,bean>,在beanName中
+		 * 没有&这个字符的。所以我们需要将name的首字符&移除,这样才能从缓存里取到FactoryBean实例。
+		 * 2.还是别名的问题,转换需要
+		 * */
 		final String beanName = transformedBeanName(name);
 		Object bean;
 
@@ -261,8 +269,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		}
 
 		else {
-			// Fail if we're already creating this bean instance:
-			// We're assumably within a circular reference.
+			/**
+			 * 原型
+			 * 如果是原型不应在初始化的时候创建
+			 * */
 			if (isPrototypeCurrentlyInCreation(beanName)) {
 				throw new BeanCurrentlyInCreationException(beanName);
 			}

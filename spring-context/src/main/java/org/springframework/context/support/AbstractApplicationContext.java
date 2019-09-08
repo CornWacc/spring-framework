@@ -631,13 +631,15 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	}
 
 	/**
-	 * Tell the subclass to refresh the internal bean factory.
-	 * @return the fresh BeanFactory instance
-	 * @see #refreshBeanFactory()
-	 * @see #getBeanFactory()
+	 * 该方法是返回一个Bean工厂，这个bean工厂在AnnotationConfigApplicationContext调用无参构造时初始化的(在GenericApplicationContext中)
+	 * 此处使用的两个方法是迭代继承获取的方法
 	 */
 	protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
+
+		//此处调用的是GenericApplicationContext.refreshBeanFactory
 		refreshBeanFactory();
+
+		//这个方法也是此处调用的是GenericApplicationContext实现的
 		return getBeanFactory();
 	}
 
