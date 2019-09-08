@@ -99,12 +99,13 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 
 		/**
 		 * 调用自己的无参构造 初始化Bean读取器和类路径扫描器
-		 * 调用父级的午餐构造 初始化Bean工厂
+		 * 调用父级的无参构造 初始化Bean工厂
 		 * */
 		this();
 
 		/**
 		 * 初始化bean
+		 * 看到后面会知道spring把传统的带上@Configuration的配置类称之为FULL配置类，不带@Configuration的称之为Lite配置类
 		 * */
 		register(annotatedClasses);
 

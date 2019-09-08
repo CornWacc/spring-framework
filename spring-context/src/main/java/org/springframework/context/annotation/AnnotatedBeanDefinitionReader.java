@@ -288,8 +288,7 @@ public class AnnotatedBeanDefinitionReader {
 
 
 	/**
-	 * Get the Environment from the given registry if possible, otherwise return a new
-	 * StandardEnvironment.
+	 * 获取系统资源
 	 */
 	private static Environment getOrCreateEnvironment(BeanDefinitionRegistry registry) {
 		Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
