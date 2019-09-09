@@ -67,6 +67,7 @@ public class AnnotatedBeanDefinitionReader {
 	 * @see #setEnvironment(Environment)
 	 */
 	public AnnotatedBeanDefinitionReader(BeanDefinitionRegistry registry) {
+		//BeanDefinitionRegisty是AnnotationConfigApplictionContext的实例
 		this(registry, getOrCreateEnvironment(registry));
 	}
 
@@ -86,6 +87,8 @@ public class AnnotatedBeanDefinitionReader {
 		//这里的registry就是AnnotationConfigApplicationContext
 		this.registry = registry;
 		this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
+
+		//门面方法
 		AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 	}
 

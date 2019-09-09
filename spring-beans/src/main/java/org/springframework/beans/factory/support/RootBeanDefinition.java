@@ -137,7 +137,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	}
 
 	/**
-	 * Create a new RootBeanDefinition for a singleton.
+	 * 创建一个根级bean definition
 	 * @param beanClass the class of the bean to instantiate
 	 * @see #setBeanClass
 	 */
