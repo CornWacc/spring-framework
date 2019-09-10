@@ -37,3 +37,5 @@ rootProject.children.each {project ->
 }
 include 'corn-study'
 
+include 'corn-spring-aop'
+

@@ -5,7 +5,6 @@ import com.corn.bean.TestService;
 import com.corn.bean.TestService2;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 public class study {
 
 	public static void main(String[] args) {
