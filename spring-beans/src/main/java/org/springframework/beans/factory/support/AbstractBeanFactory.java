@@ -77,7 +77,6 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
-import sun.net.www.http.HttpClient;
 
 /**
  * Abstract base class for {@link org.springframework.beans.factory.BeanFactory}

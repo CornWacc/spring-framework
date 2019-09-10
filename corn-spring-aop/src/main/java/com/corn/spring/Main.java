@@ -1,5 +1,6 @@
 package com.corn.spring;
 
+import com.corn.spring.app.AppConfig;
 import com.corn.spring.bean.UserBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
