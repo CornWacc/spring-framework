@@ -182,6 +182,8 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	@Override
 	public void register(Class<?>... annotatedClasses) {
 		Assert.notEmpty(annotatedClasses, "At least one annotated class must be specified");
+
+		//这里的reader是AnnotatedBeanDefinitionReader实例
 		this.reader.register(annotatedClasses);
 	}
 
