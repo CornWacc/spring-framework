@@ -2,16 +2,14 @@ package com.corn.spring.bean;
 
 
 import com.corn.spring.annotation.Point;
-import org.springframework.stereotype.Component;
+import com.corn.spring.interfaces.SayInterface;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-
-@Service
-public class UserBean {
+@Service("userBean")
+public class UserBean implements SayInterface{
 
 	@Point
-	public void say(){
-		System.out.println(1);
+	public void say(String s){
+		System.out.println(s);
 	}
 }

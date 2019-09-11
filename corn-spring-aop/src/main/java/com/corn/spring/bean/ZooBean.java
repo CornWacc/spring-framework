@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ZooBean {
 	@Point
-	public void say(){
-		System.out.println(1);
+	public void say(String s){
+		System.out.println(s);
 	}
 }
