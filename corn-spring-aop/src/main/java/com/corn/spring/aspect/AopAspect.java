@@ -1,5 +1,7 @@
-package com.corn.spring.bean;
+package com.corn.spring.aspect;
 
+import org.aopalliance.intercept.Joinpoint;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -9,11 +11,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class AopAspect {
 
-	@Pointcut("execution(* com.corn.spring.interfaces.SayInterface+.*(..))")
+	@Pointcut("execution(* com.corn.spring.bean.*.*(..))")
 	public void cat(){}
 
 	@Before("cat()")
-	public void test1(){
+	public void test1(JoinPoint point){
 		System.out.println("aop拦截到了");
 	}
 }
