@@ -40,11 +40,16 @@ final class SimpleMetadataReader implements MetadataReader {
 	private static final int PARSING_OPTIONS = ClassReader.SKIP_DEBUG
 			| ClassReader.SKIP_CODE | ClassReader.SKIP_FRAMES;
 
+	/** class类io流资源引用 */
 	private final Resource resource;
 
+	/** class类注解元数据 */
 	private final AnnotationMetadata annotationMetadata;
 
 
+	/**
+	 * 构建函数，用于通过ASM字节码操控框架读取class读取class资源流
+	 * */
 	SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throws IOException {
 		SimpleAnnotationMetadataReadingVisitor visitor = new SimpleAnnotationMetadataReadingVisitor(classLoader);
 		getClassReader(resource).accept(visitor, PARSING_OPTIONS);
@@ -55,6 +60,7 @@ final class SimpleMetadataReader implements MetadataReader {
 	private static ClassReader getClassReader(Resource resource) throws IOException {
 		try (InputStream is = new BufferedInputStream(resource.getInputStream())) {
 			try {
+				//通过ASM字节码操控框架读取class
 				return new ClassReader(is);
 			}
 			catch (IllegalArgumentException ex) {
@@ -72,11 +78,13 @@ final class SimpleMetadataReader implements MetadataReader {
 
 	@Override
 	public ClassMetadata getClassMetadata() {
+		//返回当前类元数据
 		return this.annotationMetadata;
 	}
 
 	@Override
 	public AnnotationMetadata getAnnotationMetadata() {
+		//返回当前类的注解元数据
 		return this.annotationMetadata;
 	}
 

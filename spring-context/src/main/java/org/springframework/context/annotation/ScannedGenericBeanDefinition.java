@@ -37,6 +37,8 @@ import org.springframework.util.Assert;
  * but distinguishes by type beans that have been <em>scanned</em> vs those that have
  * been otherwise registered or detected by other means.
  *
+ * 主要用于装载元数据的一个BeanDefinition
+ *
  * @author Juergen Hoeller
  * @author Chris Beams
  * @since 2.5
