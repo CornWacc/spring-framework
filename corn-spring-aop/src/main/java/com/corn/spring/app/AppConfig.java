@@ -4,6 +4,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @ComponentScan("com.corn.spring")
-@EnableAspectJAutoProxy(proxyTargetClass=true)
+@EnableAspectJAutoProxy
 public class AppConfig {
 }

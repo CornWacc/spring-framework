@@ -1095,7 +1095,7 @@ open class BeanDefinitionDsl(private val init: BeanDefinitionDsl.() -> Unit,
 	/**
 	 * Take in account bean definitions enclosed in the provided lambda only when the
 	 * specified environment-based predicate is true.
-	 * @param condition the predicate to fulfill in order to take in account the inner
+	 * @param ……condition the predicate to fulfill in order to take in account the inner
 	 * bean definition block
 	 */
 	fun environment(condition: ConfigurableEnvironment.() -> Boolean,
